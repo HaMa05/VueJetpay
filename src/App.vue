@@ -1,28 +1,41 @@
 <template>
     <div id="app">
-        <div class="overlay"></div>
+        <!-- <div class="overlay"></div>
         <notification
             :notification-title="'Thanh toán thành công'"
             :notificationCode="'651as411-14141651a-sd51d6w98'"
+            :btnTitle="'Tiếp tục mua sắm'"
+            :styleBtn="styleBtnSuccess"
             class="active"
-        />
+        /> -->
 
         <!-- <div class="overlay"></div>
         <notification
             :notification-title="'Thanh toán không thành công'"
             :notificationContent="'Giao dịch đã bỉ hủy bởi người dùng'"
-            :btnTitle="false"
+            :btnTitle="'Thanh toán lại'"
             :icon="false"
-            class="active"
+            class="active"  
         /> -->
+
+        <div class="overlay"></div>
+        <cancel-popup />
     </div>
 </template>
 
 <script>
+import CancelPopup from "./components/CancelPopup.vue";
 import Notification from "./components/Notification.vue";
 
 export default {
-    components: { Notification },
+    components: { Notification, CancelPopup },
+    computed: {
+        styleBtnSuccess() {
+            return {
+                color: "#fff",
+            };
+        },
+    },
 };
 </script>
 

@@ -1,9 +1,6 @@
 <template>
-    <div class="m-btn" v-if="btnTitle">
-        <h3 class="m-btn-title">Tiếp tục mua sắm</h3>
-    </div>
-    <div class="m-btn m-btn-err" v-else>
-        <h3 class="m-btn-title">Thanh toán lại</h3>
+    <div class="m-btn m-btn-title">
+        {{btnTitle}}
     </div>
 </template>
 
@@ -12,9 +9,9 @@ export default {
     name: "MyButton",
     props: {
         btnTitle: {
-            type: Boolean,
+            type: String,
             required: true,
-            default: true,
+            default: "Button",
         },
     },
 };
@@ -22,8 +19,8 @@ export default {
 
 <style scoped>
 .m-btn {
-    width: 400px;
-    height: 70px;
+    width: 347px;
+    height: 56px;
     display: flex;
     background-color: #00966b;
     justify-content: center;
@@ -34,6 +31,8 @@ export default {
 
 .m-btn .m-btn-title {
     color: #fff;
+    font-size: 16px;
+    font-weight: normal;
 }
 
 .m-btn-err {

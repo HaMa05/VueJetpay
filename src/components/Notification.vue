@@ -7,7 +7,7 @@
         <span class="m-notification-code" :class="{ active: notiCode }">{{
             notificationCode
         }}</span>
-        <my-button :btnTitle="btnTitle" />
+        <my-button :btnTitle="btnTitle" :style="styleBtn" />
         <span class="countDown"
             >Hệ thống sẽ tự động quay lại trang chủ Tiki sau
             <span style="color: red">{{ time }} giây</span></span
@@ -43,14 +43,19 @@ export default {
             default: "",
         },
         btnTitle: {
-            type: Boolean,
+            type: String,
             required: true,
-            default: true,
+            default: "Button",
         },
         icon: {
             type: Boolean,
             required: true,
             default: true,
+        },
+        styleBtn: {
+            type: Object,
+            required: false,
+            default: "",
         },
     },
     methods: {
@@ -71,7 +76,7 @@ export default {
 
 <style scoped>
 .m-notification {
-    width: 400px;
+    width: 347px;
     min-height: 400px;
     position: absolute;
     left: 50%;
@@ -82,22 +87,22 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Google sans";
     line-height: 0;
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 96px;
+    height: 96px;
     padding-bottom: 26px;
 }
 
 .m-notification-title {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .m-notification-content {
-    font-size: 12px;
+    font-size: 14px;
     padding-top: 10px;
     font-weight: normal;
 }
@@ -107,11 +112,13 @@ my-button {
 }
 
 .countDown {
-    padding-top: 30px;
+    padding-top: 14px;
+    font-size: 14px;
 }
 
 .m-notification-code.active {
-    padding: 10px 0 40px 0;
+    padding-bottom: 40px;
+    font-size: 16px;
     color: #00966b;
 }
 </style>
